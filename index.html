@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Data Getter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,8 +13,8 @@
 
     <section>
         <div>
-            <input type="text" id="inpUser">
-            <button id="btn" onclick="addUser()">Buscar Dados</button>
+            Usuário: <input type="text" id="inpUser" class="box">
+            <button id="btn" class="box" onclick="addUser()">Buscar Dados</button>
 
             <p><h2>Dados:</h2></p>
 
@@ -22,7 +23,7 @@
             </p>
         </div>
         
-        <div> 
+        <div><h2>Usuários encontrados:</h2>
             <ul id="lista">
                 
             </ul>

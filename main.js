@@ -36,21 +36,28 @@ function addUser() {
     minhaPromise(user)
         .then(function(response) {
             console.log(response);
-            users.push(response);
-            renderUserData();
-            rederUsers();
+            findUser(users, user) == -1 ? users.push(response) : 1==1;
+            let pos = findUser(users, user);
+            renderUserData(pos);
+            renderUsers();
         })
         .catch(function(error) {
             console.warn(error);
+            userData.innerHTML = `Usuário <strong>${user}</strong> não encontrado!`;
         });
 }
 
-function renderUserData(objeto) {
-    userData.innerText = JSON.stringify(users[users.length-1]);
+function renderUserData(pos) {
+    userData.innerText = JSON.stringify(users[pos]);
+
 }
 
 function renderUsers() {
+    ulElement.innerHTML = ''
     for(i in users) {
-
+        let itemLista = document.createElement('li');
+        itemLista.setAttribute('name', `user${i}`);
+        itemLista.innerText = users[i].login;
+        ulElement.appendChild(itemLista);
     }
 }
