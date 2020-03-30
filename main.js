@@ -1,6 +1,7 @@
 let ulElement = document.querySelector('ul');
 let inpElement = document.querySelector('#inpUser');
 let btnElement = document.querySelector('#btn');
+let userData = document.querySelector('#userData');
 let users = [];
 
 var minhaPromise = function(user) {
@@ -23,12 +24,26 @@ var minhaPromise = function(user) {
 
 function addUser() {
     var user = inpElement.value;
+    inpElement.value = '';
+    inpElement.focus();
     minhaPromise(user)
         .then(function(response) {
             console.log(response);
+            users.push(response);
+            renderUserData();
+            rederUsers();
         })
         .catch(function(error) {
             console.warn(error);
         });
 }
 
+function renderUserData(objeto) {
+    userData.innerText = JSON.stringify(users[users.length-1]);
+}
+
+function renderUsers() {
+    for(i in users) {
+
+    }
+}
