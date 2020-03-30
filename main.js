@@ -4,6 +4,13 @@ let btnElement = document.querySelector('#btn');
 let userData = document.querySelector('#userData');
 let users = [];
 
+const findUser = function(lista, user) {
+    const index = lista.findIndex(function(usuario, index) {
+        return usuario.login === user;
+    })
+    return index
+}
+
 var minhaPromise = function(user) {
     return new Promise(function(resolve,reject) {
         var xhr = new XMLHttpRequest();
